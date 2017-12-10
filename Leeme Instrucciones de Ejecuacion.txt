@@ -1,0 +1,6 @@
+Para ejecutar el proyecto solo es necesarios
+ejecurtar el archivo
+
+python UserInterface.py
+
+Y seguir las instrucciones

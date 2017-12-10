@@ -9,6 +9,8 @@ def Installrequirements():
     print("Iniciando instalacion de Requerimientos")
     #Dependencia de Redis
     os.system("sudo apt install redis-server")
+    #Dependence curl
+    os.system("sudo apt install curl")
     #Dependencia de python py
     os.system("sudo apt install python-pip")
     #Dependencia de virtualenv
@@ -26,11 +28,14 @@ def Installrequirements():
 def RunProjectWeb():
     print("Carga servicio Web")
     call(["source environment/bin/activate"])
-    call(["python EngineSimilarityCosine/web.py"])
+
 
 def LoadindDate():
     print("Carga Datos de Entranamiento")
-    call(["curl -X GET -H "X-API-TOKEN: FOOBAR1" -H "Content-Type: application/json; charset=utf-8" http://127.0.0.1:5000/train -d '{"data-url": "sample-data.csv"}'"])
+    call(["curl", "-X GET -H ","X-API-TOKEN: FOOBAR1", "-H ", "Content-Type: application/json; charset=utf-8", "http://127.0.0.1:5000/train", "-d", " '{","data-url": "sample-data.csv"}'"])
+
+def SearchRelation():
+    idItem = raw_input("Ingrese un Id de articulo para encontrar similitudes: ")
 
 
 def WellcomeMessage():
