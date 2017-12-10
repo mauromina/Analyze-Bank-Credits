@@ -1,7 +1,5 @@
-
 import os
 from subprocess import call
-
 
 def Installrequirements():
     print("Necesita Otorgar Permisos de Administrador")
@@ -25,18 +23,17 @@ def Installrequirements():
     print("-+-+-+-+-+ instalacion completada:")
     RunProjectWeb()
 
-def RunProjectWeb():
-    print("Carga servicio Web")
-    call(["source environment/bin/activate"])
-
-
 def LoadindDate():
     print("Carga Datos de Entranamiento")
-    call(["curl", "-X GET -H ","X-API-TOKEN: FOOBAR1", "-H ", "Content-Type: application/json; charset=utf-8", "http://127.0.0.1:5000/train", "-d", " '{","data-url": "sample-data.csv"}'"])
+    call (["bash", ".\sendingTraining.sh"])
+
+def RunProjectWeb():
+    print("Carga servicio Web")
+    call (["python", "EngineSimilarityCosine/web.py"])
+    LoadindDate()
 
 def SearchRelation():
     idItem = raw_input("Ingrese un Id de articulo para encontrar similitudes: ")
-
 
 def WellcomeMessage():
     print("Bienvenido al sistema  de recomendaciones basado en contenido.")
