@@ -19,14 +19,15 @@ class ContentEngine(object):
 
     def train(self, data_source):
         start = time.time()
-        ds = pd.read_csv(data_source)
+        data_input = pd.read_csv(data_source)
         info("Training data ingested in %s seconds." % (time.time() - start))
+        print(data_input)
 
         # Flush the stale training data from redis
         self._r.flushdb()
 
         start = time.time()
-        self._train(ds)
+        self._train(data_input)
         info("Engine trained in %s seconds." % (time.time() - start))
 
     def _train(self, ds):
@@ -51,7 +52,7 @@ class ContentEngine(object):
         tfidf_matrix = tf.fit_transform(ds['description'])
 
         cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
-
+        print(cosine_similarities )
         for idx, row in ds.iterrows():
             similar_indices = cosine_similarities[idx].argsort()[:-100:-1]
             similar_items = [(cosine_similarities[idx][i], ds['id'][i]) for i in similar_indices]
