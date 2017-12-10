@@ -9,7 +9,6 @@ from sklearn.metrics.pairwise import linear_kernel
 def info(msg):
     current_app.logger.info(msg)
 
-
 class ContentEngine(object):
 
     SIMKEY = 'p:smlr:%s'
@@ -71,6 +70,7 @@ class ContentEngine(object):
         :return: A list of lists like: [["19", 0.2203], ["494", 0.1693], ...]. The first item in each sub-list is
         the item ID and the second is the similarity score. Sorted by similarity score, descending.
         """
+        print(self.r)
         return self._r.zrange(self.SIMKEY % item_id, 0, num-1, withscores=True, desc=True)
 
 
