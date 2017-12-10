@@ -24,9 +24,14 @@ def Installrequirements():
     RunProjectWeb()
 
 def RunProjectWeb():
-    call(["ls", "-l"])
-    os.system("source environment/bin/activate")
-    os.system("python EngineSimilarityCosine/web.py")
+    print("Carga servicio Web")
+    call(["source environment/bin/activate"])
+    call(["python EngineSimilarityCosine/web.py"])
+
+def LoadindDate():
+    print("Carga Datos de Entranamiento")
+    call(["curl -X GET -H "X-API-TOKEN: FOOBAR1" -H "Content-Type: application/json; charset=utf-8" http://127.0.0.1:5000/train -d '{"data-url": "sample-data.csv"}'"])
+
 
 def WellcomeMessage():
     print("Bienvenido al sistema  de recomendaciones basado en contenido.")
@@ -40,5 +45,7 @@ def WellcomeMessage():
         Installrequirements()
     else:
         print(" +-+-+- Lanzar App +-+-+-")
+        RunProjectWeb() # Lanza el servicio web en la direccion 127.0.0.1:5000
+        LoadindDate() # Carga el archivo CVS para la creacion de las matrices
 
 WellcomeMessage()
