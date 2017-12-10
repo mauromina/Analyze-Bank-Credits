@@ -1,4 +1,4 @@
-#!/home/serverapp/Documentos/GitHub/Analyze-Bank-Credits/Environment/bin/python
+#!/home/serverapp/Documentos/GitHub/Analyze-Bank-Credits/environment/bin/python
 
 import sys
 import getopt

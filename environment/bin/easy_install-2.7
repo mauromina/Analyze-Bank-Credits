@@ -1,10 +1,10 @@
-#!/home/serverapp/Documentos/GitHub/Analyze-Bank-Credits/Environment/bin/python2
+#!/home/serverapp/Documentos/GitHub/Analyze-Bank-Credits/environment/bin/python2
 
 # -*- coding: utf-8 -*-
 import re
 import sys
 
-from pip import main
+from setuptools.command.easy_install import main
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
